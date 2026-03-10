@@ -103,6 +103,7 @@ texto.includes("corinthians") ||
 texto.includes("palme") ||
 texto.includes("são paulo") ||
 texto.includes("vasco") ||
+  texto.includes("milan") ||
 texto.includes("barcelona") ||
 texto.includes("real madrid") ||
 texto.includes("brasil")
@@ -119,69 +120,4 @@ camisa.appendChild(tag2)
 })
 
 
-})function toggleOrdenar(){
-
-let menu = document.getElementById("menuOrdenar")
-
-menu.style.display =
-menu.style.display === "block" ? "none" : "block"
-
-}
-
-
-function ordenarAZ(){
-
-ordenar((a,b)=>a.nome.localeCompare(b.nome))
-
-}
-
-function ordenarZA(){
-
-ordenar((a,b)=>b.nome.localeCompare(a.nome))
-
-}
-
-function ordenarPrecoMenor(){
-
-ordenar((a,b)=>a.preco-b.preco)
-
-}
-
-function ordenarPrecoMaior(){
-
-ordenar((a,b)=>b.preco-a.preco)
-
-}
-
-function ordenarRelevancia(){
-
-location.reload()
-
-}
-
-
-function ordenar(comparador){
-
-let catalogo = document.querySelector(".catalogo")
-
-let cards = Array.from(document.querySelectorAll(".card"))
-
-cards.sort((a,b)=>{
-
-let nomeA = a.querySelector("h3").innerText
-
-let nomeB = b.querySelector("h3").innerText
-
-let precoA = parseFloat(a.querySelector(".preco").innerText.replace("R$","").replace(",", "."))
-
-let precoB = parseFloat(b.querySelector(".preco").innerText.replace("R$","").replace(",", "."))
-
-return comparador({nome:nomeA,preco:precoA},{nome:nomeB,preco:precoB})
-
 })
-
-catalogo.innerHTML=""
-
-cards.forEach(card=>catalogo.appendChild(card))
-
-}
