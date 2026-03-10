@@ -78,10 +78,29 @@ placeholder="🔎Pesquisar clube, Seleção ou Temporada"
 
 </section>
 
+<div class="ordenar-container">
+
+<button class="btn-ordenar" onclick="toggleOrdenar()">
+ORDENAR POR ☰
+</button>
+
+<div class="menu-ordenar" id="menuOrdenar">
+
+<button onclick="ordenarAZ()">Ordem Alfabética (A-Z)</button>
+
+<button onclick="ordenarZA()">Ordem Alfabética (Z-A)</button>
+
+<button onclick="ordenarPrecoMenor()">Preço: menor para maior</button>
+
+<button onclick="ordenarPrecoMaior()">Preço: maior para menor</button>
+
+<button onclick="ordenarRelevancia()">Relevância</button>
+
+</div>
+
+</div>
 
 
-<!-- AS NOVAS CAMISAS FICAM A BAIXO DA SEÇÃO: /section= catálogo -->
- <H2>EXPLORAR MODELOS:</H2>
 <section class="catalogo">
 
 
@@ -121,6 +140,24 @@ Comprar no WhatsApp
 </a>
 </div>
 
+    <div class="card camisa MANCHESTER UNITED">
+
+<img 800x800 px src="img/󠁧󠁢󠁥󠁮󠁧󠁿PREMIER LEAGUE/MAN. UNITED/Camisa 1 2007_08 RETRO MAN. UNITED.webp">
+
+<h3>MANCHESTER UNITED</h3>
+
+<p>Retro 07/08</p>
+
+<span class="preco">R$149,90</span>
+
+<a class="comprar"
+href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do MANCHESTER UNITED"
+target="_blank">
+Comprar no WhatsApp
+</a>
+
+</div>
+    
 <div class="card camisa PALMERAS">
 
 <img 800x800 px src="img/BRASILEIRÃO/PALMERAS/D_NQ_NP_2X_758588-MLB104636466635_012026-F.webp">
@@ -349,6 +386,23 @@ Comprar no WhatsApp
 </a>
 </div>
 
+<div class="card camisa MILAN">
+
+<img 800x800 px src="img/SERIE A/MILAN/Camisa RETRO 2003 MILAN.jpg">
+
+<h3>MILAN</h3>
+
+<p>Retro 07/08</p>
+
+<span class="preco">R$149,90</span>
+
+<a class="comprar"
+href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do MILAN"
+target="_blank">
+Comprar no WhatsApp
+</a>
+</div>
+    
 <div class="card camisa FLAMENGO">
 
 <img 800x800 px src="IMAGENS.SITE/FLAMENGO SPECIAL EDITON_ ZICO 149.jpg">
@@ -674,23 +728,8 @@ target="_blank">
 Comprar no WhatsApp
 </a>
 </div>
+<!-- MILAN -->
 
-<div class="card camisa MILAN">
-
-<img 800x800 px src="img/SERIE A/MILAN/Camisa RETRO 2003 MILAN.jpg">
-
-<h3>MILAN</h3>
-
-<p>Retro 07/08</p>
-
-<span class="preco">R$139,90</span>
-
-<a class="comprar"
-href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do MILAN"
-target="_blank">
-Comprar no WhatsApp
-</a>
-</div>
 
 <div class="card camisa MILAN">
 
@@ -698,7 +737,7 @@ Comprar no WhatsApp
 
 <h3>MILAN</h3>
 
-<p>Temporada 26/27</p>
+<p>Temporada 22/23</p>
 
 <span class="preco">R$99,90</span>
 
@@ -786,7 +825,7 @@ Comprar no WhatsApp
 
 <p>Temporada 25/26</p>
 
-<span class="preco">R$99,90</span>
+<span class="preco">R$109,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do PORTUGAL"
@@ -804,7 +843,7 @@ Comprar no WhatsApp
 
 <p>Temporada 25/26</p>
 
-<span class="preco">R$99,90</span>
+<span class="preco">R$109,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do PORTUGAL"
@@ -906,7 +945,7 @@ Comprar no WhatsApp
 
 <h3>FRANÇA</h3>
 
-<p>Temporada 22/23</p>
+<p>Concept Edition</p>
 
 <span class="preco">R$99,90</span>
 
@@ -925,7 +964,7 @@ Comprar no WhatsApp
 
 <p>Temporada 26/27</p>
 
-<span class="preco">R$119,90</span>
+<span class="preco">R$129,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa da ESPANHA"
@@ -943,7 +982,7 @@ Comprar no WhatsApp
 
 <p>Temporada 26/27</p>
 
-<span class="preco">R$119,90</span>
+<span class="preco">R$129,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa da ESPANHA"
@@ -1060,23 +1099,7 @@ Comprar no WhatsApp
 
 </div>
 
-<div class="card camisa MANCHESTER UNITED">
 
-<img 800x800 px src="img/󠁧󠁢󠁥󠁮󠁧󠁿PREMIER LEAGUE/MAN. UNITED/Camisa 1 2007_08 RETRO MAN. UNITED.webp">
-
-<h3>MANCHESTER UNITED</h3>
-
-<p>Retro 07/08</p>
-
-<span class="preco">R$149,90</span>
-
-<a class="comprar"
-href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do MANCHESTER UNITED"
-target="_blank">
-Comprar no WhatsApp
-</a>
-
-</div>
 
 <div class="card camisa MANCHESTER CITY">
 
@@ -1194,7 +1217,7 @@ Comprar no WhatsApp
 
 <p>Retro 2013</p>
 
-<span class="preco">R$119,90</span>
+<span class="preco">R$129,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do ARSENAL"
@@ -1504,7 +1527,7 @@ Comprar no WhatsApp
 
 <p>Temporada 25/26</p>
 
-<span class="preco">R$99,90</span>
+<span class="preco">R$109,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do REAL MADRID "
@@ -1596,7 +1619,7 @@ Comprar no WhatsApp
 
 <p>Temporada 24/25</p>
 
-<span class="preco">R$99,90</span>
+<span class="preco">R$109,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do BARCELONA "
@@ -1777,7 +1800,7 @@ Comprar no WhatsApp
 
 <p>Temporada 26/27</p>
 
-<span class="preco">R$99,90</span>
+<span class="preco">R$119,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do VASCO "
@@ -1922,7 +1945,7 @@ Comprar no WhatsApp
 
 <p>Temporada 24/25</p>
 
-<span class="preco">R$99,90</span>
+<span class="preco">R$109,90</span>
 
 <a class="comprar"
 href="https://wa.me/5515991617508?text=Olá, tenho interesse na camisa do SANTOS "
@@ -2207,3 +2230,4 @@ WhatsApp
 </body>
 
 </html>
+
