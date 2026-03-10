@@ -545,3 +545,68 @@ z-index:5;
     margin-bottom: 40px;
 }
 
+
+/* SUAVIDADE GERAL */
+
+.card{
+transition: all 0.3s ease;
+}
+
+/* EFEITO AO PASSAR O MOUSE (PC) */
+
+.card:hover{
+
+transform:scale(1.05);
+
+box-shadow:0 15px 35px rgba(0,0,0,0.25);
+
+border:2px solid #d4af37;
+
+}
+
+
+/* ZOOM NA CAMISA */
+
+.card img{
+
+transition:transform 0.3s ease;
+
+}
+
+.card:hover img{
+
+transform:scale(1.08);
+
+}
+
+
+/* BOTÃO WHATSAPP */
+
+.comprar{
+
+transition:all 0.3s ease;
+
+}
+
+.comprar:hover{
+
+background:#1ebe5d;
+
+transform:scale(1.05);
+
+}
+
+
+/* EFEITO DE TOQUE (CELULAR) */
+
+.card:active{
+
+transform:scale(0.97);
+
+}
+
+.comprar:active{
+
+transform:scale(0.93);
+
+}
