@@ -106,31 +106,18 @@ texto.includes("vasco") ||
   texto.includes("milan") ||
 
 
-  window.addEventListener("load", function() {
-  const loader = document.getElementById("loader");
-  const content = document.getElementById("content");
+<script>
+  // Esta função roda assim que o navegador lê o script, sem esperar o site todo carregar
+  function fecharLoader() {
+    const loader = document.getElementById("loader-wrapper");
+    if (loader) {
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500); // tempo da animação de sumir
+    }
+  }
 
-  // Adiciona um pequeno atraso de 0.5s para a transição não ser brusca
-  setTimeout(() => {
-    loader.style.display = "none";
-    content.style.display = "block";
-  }, 500); 
-});
-
-texto.includes("barcelona") ||
-texto.includes("real madrid") ||
-texto.includes("brasil")
-){
-
-let tag2 = document.createElement("div")
-tag2.classList.add("etiqueta-vendida")
-tag2.innerText = "MAIS VENDIDA"
-
-camisa.appendChild(tag2)
-
-}
-
-})
-
-
-})
+  // Força o fechamento em exatos 3 segundos (3000ms)
+  setTimeout(fecharLoader, 3000);
+</script>
