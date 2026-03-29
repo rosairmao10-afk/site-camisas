@@ -104,6 +104,19 @@ texto.includes("palme") ||
 texto.includes("são paulo") ||
 texto.includes("vasco") ||
   texto.includes("milan") ||
+
+
+  window.addEventListener("load", function() {
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("content");
+
+  // Adiciona um pequeno atraso de 0.5s para a transição não ser brusca
+  setTimeout(() => {
+    loader.style.display = "none";
+    content.style.display = "block";
+  }, 500); 
+});
+
 texto.includes("barcelona") ||
 texto.includes("real madrid") ||
 texto.includes("brasil")
