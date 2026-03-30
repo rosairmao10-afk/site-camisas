@@ -1,6 +1,8 @@
-// 1. FUNÇÃO PARA ABRIR/FECHAR A ABA DE FILTROS
+// 1. ABRE/FECHA A ABA DE FILTROS (Com proteção de erro)
 function toggleFiltros() {
     let aba = document.getElementById("abaFiltros");
+    if (!aba) return; // Se não achar a aba, ignora e não trava o site
+    
     if (aba.style.display === "flex") {
         aba.style.display = "none";
     } else {
@@ -8,75 +10,69 @@ function toggleFiltros() {
     }
 }
 
-// 2. FUNÇÃO DOS BOTÕES DE LIGAS (CORRIGIDA)
+// 2. FILTRA LIGAS (Procura por .card ou .camisa)
 function filtrarCategoria(categoria) {
-    let cards = document.querySelectorAll(".card");
+    let cards = document.querySelectorAll(".card, .camisa");
     cards.forEach(card => {
-        if (categoria === "todos") {
-            card.style.display = ""; // Deixa o CSS original agir
-        } else if (card.classList.contains(categoria)) {
-            card.style.display = ""; // Deixa o CSS original agir
+        if (categoria === "todos" || card.classList.contains(categoria)) {
+            card.style.display = ""; // Volta ao normal do CSS
         } else {
             card.style.display = "none";
         }
     });
 }
 
-// 3. FUNÇÃO DA BARRA DE PESQUISA (CORRIGIDA)
+// 3. BARRA DE PESQUISA POR TEXTO
 function pesquisarCamisa() {
-    let entrada = document.getElementById("campoPesquisa").value.toLowerCase();
-    let cards = document.querySelectorAll(".card");
+    let campo = document.getElementById("campoPesquisa");
+    if (!campo) return; 
+
+    let entrada = campo.value.toLowerCase();
+    let cards = document.querySelectorAll(".card, .camisa");
 
     cards.forEach(card => {
         let conteudo = card.innerText.toLowerCase();
         if (conteudo.includes(entrada)) {
-            card.style.display = ""; // Deixa o CSS original agir
+            card.style.display = "";
         } else {
             card.style.display = "none";
         }
     });
 }
 
-// 4. LÓGICA AUTOMÁTICA AO CARREGAR A PÁGINA
+// 4. LÓGICA AUTOMÁTICA AO CARREGAR O SITE
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Atalho: Faz a pesquisa funcionar ao apertar a tecla "Enter"
+    // Configura a tecla Enter
     let campo = document.getElementById("campoPesquisa");
     if(campo) {
         campo.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") {
-                pesquisarCamisa();
-            }
+            if (event.key === "Enter") pesquisarCamisa();
         });
     }
 
-    // Gerenciamento Automático de Etiquetas
-    let cards = document.querySelectorAll(".card");
+    // Coloca as Etiquetas Sozinho
+    let cards = document.querySelectorAll(".card, .camisa");
     cards.forEach(card => {
         let texto = card.innerText.toLowerCase();
 
-        /* ETIQUETA LANÇAMENTO */
-        if (texto.includes("26/27")) {
-            let tagL = document.createElement("div");
-            tagL.classList.add("etiqueta-lancamento");
-            tagL.innerText = "LANÇAMENTO";
-            card.appendChild(tagL);
+        if (texto.includes("26/27") || texto.includes("2026")) {
+            // Só adiciona se já não tiver uma etiqueta lá dentro
+            if (!card.querySelector('.etiqueta-lancamento')) {
+                let tagL = document.createElement("div");
+                tagL.classList.add("etiqueta-lancamento");
+                tagL.innerText = "LANÇAMENTO";
+                card.appendChild(tagL);
+            }
         }
 
-        /* ETIQUETA MAIS VENDIDA */
-        if (
-            texto.includes("flamengo") ||
-            texto.includes("corinthians") ||
-            texto.includes("palmeiras") ||
-            texto.includes("são paulo") ||
-            texto.includes("vasco") ||
-            texto.includes("milan") ||
-            texto.includes("real madrid")
-        ) {
-            let tagV = document.createElement("div");
-            tagV.classList.add("etiqueta-vendida");
-            tagV.innerText = "MAIS VENDIDA";
-            card.appendChild(tagV);
+        if (texto.includes("flamengo") || texto.includes("corinthians") || texto.includes("palmeiras") || texto.includes("são paulo") || texto.includes("vasco") || texto.includes("milan") || texto.includes("real madrid")) {
+            if (!card.querySelector('.etiqueta-vendida')) {
+                let tagV = document.createElement("div");
+                tagV.classList.add("etiqueta-vendida");
+                tagV.innerText = "MAIS VENDIDA";
+                card.appendChild(tagV);
+            }
         }
     });
 });
