@@ -1,7 +1,7 @@
-// 1. ABRE/FECHA A ABA DE FILTROS (Com proteção de erro)
+// 1. ABRE/FECHA A ABA DE FILTROS
 function toggleFiltros() {
     let aba = document.getElementById("abaFiltros");
-    if (!aba) return; // Se não achar a aba, ignora e não trava o site
+    if (!aba) return;
     
     if (aba.style.display === "flex") {
         aba.style.display = "none";
@@ -10,12 +10,12 @@ function toggleFiltros() {
     }
 }
 
-// 2. FILTRA LIGAS (Procura por .card ou .camisa)
+// 2. FILTRA LIGAS
 function filtrarCategoria(categoria) {
     let cards = document.querySelectorAll(".card, .camisa");
     cards.forEach(card => {
         if (categoria === "todos" || card.classList.contains(categoria)) {
-            card.style.display = ""; // Volta ao normal do CSS
+            card.style.display = ""; 
         } else {
             card.style.display = "none";
         }
@@ -40,10 +40,10 @@ function pesquisarCamisa() {
     });
 }
 
-// 4. LÓGICA AUTOMÁTICA AO CARREGAR O SITE
+// 4. LÓGICA AUTOMÁTICA E TROCA DE IMAGEM
 document.addEventListener("DOMContentLoaded", function() {
     
-    // Configura a tecla Enter
+    // Pesquisa no Enter
     let campo = document.getElementById("campoPesquisa");
     if(campo) {
         campo.addEventListener("keypress", function(event) {
@@ -51,13 +51,12 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Coloca as Etiquetas Sozinho
+    // Etiquetas Automáticas
     let cards = document.querySelectorAll(".card, .camisa");
     cards.forEach(card => {
         let texto = card.innerText.toLowerCase();
 
         if (texto.includes("26/27") || texto.includes("2026")) {
-            // Só adiciona se já não tiver uma etiqueta lá dentro
             if (!card.querySelector('.etiqueta-lancamento')) {
                 let tagL = document.createElement("div");
                 tagL.classList.add("etiqueta-lancamento");
@@ -73,6 +72,30 @@ document.addEventListener("DOMContentLoaded", function() {
                 tagV.innerText = "MAIS VENDIDA";
                 card.appendChild(tagV);
             }
+        }
+    });
+
+    // 5. O QUE ESTAVA FALTANDO: TROCAR FRENTE/COSTAS AO CLICAR
+    let containersImagem = document.querySelectorAll(".imagem-container");
+    
+    containersImagem.forEach(container => {
+        let imagens = container.querySelectorAll("img");
+        
+        // Só aplica o efeito se tiver as duas fotos (frente e costas)
+        if (imagens.length >= 2) {
+            // Esconde a segunda imagem (costas) logo de cara
+            imagens[1].style.display = "none";
+            
+            // Quando clicar na foto, ele inverte qual aparece
+            container.addEventListener("click", function() {
+                if (imagens[0].style.display === "none") {
+                    imagens[0].style.display = "block";
+                    imagens[1].style.display = "none";
+                } else {
+                    imagens[0].style.display = "none";
+                    imagens[1].style.display = "block";
+                }
+            });
         }
     });
 });
