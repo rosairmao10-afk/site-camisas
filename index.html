@@ -13,6 +13,32 @@
     
     <link rel="stylesheet" href="style.css">
 
+<head>
+    <!-- Outras metas e links aqui -->
+    <style>
+        #loader-wrapper {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #ffffff;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 99999;
+        }
+        .loader-circle {
+            width: 50px; height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+    
 </head>
 
 
@@ -20,6 +46,14 @@
 
 <body>
 
+
+    <div id="loader-wrapper">
+        <div class="loader-circle"></div>
+    </div>
+    
+    <!-- Todo o resto do seu site (imagens, textos, etc) vem aqui abaixo -->
+
+    
 <div id="loader">
   <div class="spinner"></div>
   <p>Carregando conteúdo...</p>
@@ -581,6 +615,25 @@
 
     <script src="script.js"></script>
 
+    <!-- ... fim do conteúdo do seu site ... -->
+
+    <script>
+        // Função para esconder o loader
+        function sumirLoader() {
+            var loader = document.getElementById("loader-wrapper");
+            if (loader) {
+                loader.style.display = "none";
+            }
+        }
+
+        // Força o sumiço após 3 segundos (3000ms)
+        setTimeout(sumirLoader, 3000);
+    </script>
+    
+</body>
+</html>
+
+    
 </body>
 
 </html>
