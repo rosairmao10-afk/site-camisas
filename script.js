@@ -132,3 +132,31 @@ document.getElementById("campoPesquisa").addEventListener("keypress", function(e
         pesquisarCamisa();
     }
 });
+
+
+
+                // 1. Função para abrir/fechar a aba de filtros
+function toggleFiltros() {
+    let aba = document.getElementById("abaFiltros");
+    if (aba.style.display === "flex") {
+        aba.style.display = "none";
+    } else {
+        aba.style.display = "flex";
+    }
+}
+
+// 2. Função para filtrar as camisas por categoria
+function filtrarCategoria(categoria) {
+    let cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+        // Se clicar em 'todos', mostra tudo. Caso contrário, filtra pela classe.
+        if (categoria === "todos") {
+            card.style.display = "flex";
+        } else if (card.classList.contains(categoria)) {
+            card.style.display = "flex";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
