@@ -107,17 +107,18 @@ texto.includes("vasco") ||
 
 
 <script>
-  // Esta função roda assim que o navegador lê o script, sem esperar o site todo carregar
-  function fecharLoader() {
-    const loader = document.getElementById("loader-wrapper");
-    if (loader) {
-      loader.style.opacity = "0";
-      setTimeout(() => {
-        loader.style.display = "none";
-      }, 500); // tempo da animação de sumir
-    }
-  }
-
-  // Força o fechamento em exatos 3 segundos (3000ms)
-  setTimeout(fecharLoader, 3000);
+    // Esta função vai rodar AUTOMATICAMENTE após 3 segundos
+    setTimeout(function() {
+        // Tenta encontrar o loader pelo ID que definimos antes
+        var loader = document.getElementById("loader-wrapper");
+        
+        if (loader) {
+            // Se encontrar, ele força o desaparecimento imediato
+            loader.style.display = "none";
+            console.log("Loader removido com sucesso!");
+        } else {
+            // Se não encontrar, ele avisa no console do navegador (F12)
+            console.error("Erro: Não encontrei o elemento com ID 'loader-wrapper'");
+        }
+    }, 3000); // 3000 milissegundos = 3 segundos
 </script>
