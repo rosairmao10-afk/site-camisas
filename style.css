@@ -10,7 +10,7 @@ body {
 }
 
 /* =========================================
-   BARRA DE PESQUISA
+   BARRA DE PESQUISA (90+3)
 ========================================= */
 #campoPesquisa {
     width: 70%;
@@ -24,7 +24,7 @@ body {
 }
 
 #campoPesquisa:focus {
-    border-color: #c9a227; /* Fica dourado ao clicar */
+    border-color: #c9a227; /* Dourado da marca */
 }
 
 /* =========================================
@@ -39,7 +39,7 @@ body {
     font-weight: bold;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -53,16 +53,22 @@ body {
 }
 
 .filtros-container {
-    display: none; /* Começa escondido, o JS controla isso */
+    display: none; /* Começa escondido, o JS abre */
     justify-content: center;
     flex-wrap: wrap;
     gap: 10px;
     padding: 20px;
-    background: #1a1a1a;
+    background: #1a1a1a; /* Fundo escuro para destacar do site */
     margin: 10px auto 30px auto;
     max-width: 90%;
     border-radius: 20px;
     border: 1px solid #333;
+    animation: fadeIn 0.3s ease; /* Animação suave ao abrir */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .btn-liga {
@@ -73,8 +79,7 @@ body {
     border-radius: 30px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 15px;
-    transition: all 0.3s;
+    transition: 0.3s;
 }
 
 .btn-liga:hover {
@@ -83,9 +88,8 @@ body {
 }
 
 /* =========================================
-   OS CARDS DOS PRODUTOS (A CORREÇÃO AQUI!)
+   OS CARDS DOS PRODUTOS (A CORREÇÃO PRINCIPAL)
 ========================================= */
-/* Container que segura todos os cards */
 .container-camisas {
     display: flex;
     flex-wrap: wrap;
@@ -94,58 +98,62 @@ body {
     padding: 20px;
 }
 
-/* O Card Individual */
 .card {
     background-color: #fff;
-    width: 280px; /* Largura fixa para todos ficarem iguais */
+    width: 280px; /* Largura fixa para uniformidade */
     display: flex;
-    flex-direction: column; /* FORÇA A IMAGEM FICAR EM CIMA E TEXTO EMBAIXO */
-    align-items: center;    /* Centraliza o conteúdo */
+    flex-direction: column; /* FORÇA TUDO EM COLUNA: FOTO EM CIMA, TEXTO EMBAIXO */
+    align-items: center;    /* Centraliza o conteúdo horizontalmente */
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding-bottom: 15px;
-    overflow: hidden; /* Corta o que sobrar fora da borda arredondada */
-    position: relative; /* FUNDAMENTAL para as etiquetas funcionarem */
-    transition: transform 0.3s;
+    overflow: hidden; /* Corta o que sobrar fora das bordas arredondadas */
+    position: relative; /* Necessário para as etiquetas ficarem presas nos cantos */
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 10px;
 }
 
 .card:hover {
-    transform: translateY(-5px); /* Efeito de flutuar ao passar o dedo/mouse */
+    transform: translateY(-5px); /* Efeito flutuante ao passar o dedo */
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-/* A Imagem da Camisa */
+/* Container da Imagem (para o efeito de giro funcionar) */
+.imagem-container {
+    width: 100%;
+    position: relative;
+    cursor: pointer; /* Indica que dá pra clicar pra girar */
+    overflow: hidden;
+}
+
+/* A Imagem dentro do Card */
 .card img {
     width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain; /* Garante que a camisa apareça inteira na foto */
     border-bottom: 2px solid #eee;
+    transition: opacity 0.3s; /* Transição suave na troca da foto */
 }
 
-/* Textos dentro do Card */
+/* Título e Preço */
 .card h3 {
-    margin: 15px 0 5px 0;
+    margin: 15px 10px 5px 10px;
     font-size: 20px;
     color: #000;
     text-transform: uppercase;
-}
-
-.card p {
-    margin: 0 0 10px 0;
-    color: #555;
-    font-size: 14px;
+    text-align: center;
 }
 
 .preco {
     font-size: 22px;
     font-weight: bold;
     color: #28a745; /* Verde para destacar o preço */
-    margin-bottom: 15px;
+    margin: 10px 0;
 }
 
 /* Botão do WhatsApp */
 .comprar {
-    background-color: #25D366; /* Verde Oficial do WhatsApp */
+    background-color: #25D366; /* Verde Oficial WhatsApp */
     color: white;
     text-decoration: none;
     padding: 10px 20px;
@@ -162,7 +170,7 @@ body {
 }
 
 /* =========================================
-   ETIQUETAS AUTOMÁTICAS (CRIADAS PELO JS)
+   ETIQUETAS AUTOMÁTICAS (POSICIONADAS CERTO)
 ========================================= */
 .etiqueta-vendida {
     position: absolute;
@@ -182,7 +190,7 @@ body {
     position: absolute;
     top: 15px;
     left: 15px;
-    background-color: #c9a227; /* Dourado da 90+3 */
+    background-color: #c9a227; /* Dourado 90+3 */
     color: #000;
     padding: 6px 12px;
     font-size: 12px;
@@ -191,4 +199,3 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 10;
 }
-
