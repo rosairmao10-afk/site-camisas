@@ -704,3 +704,15 @@ transform:scale(0.93);
   background-color: #1ebe5d; /* Escurece o botão ao passar o mouse */
 }
 
+
+
+
+
+
+.catalogo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-items: center; /* Isso centraliza o card dentro da "grade" dele */
+    gap: 30px;
+    padding: 40px;
+}
