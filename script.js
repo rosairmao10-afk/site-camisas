@@ -105,4 +105,16 @@ texto.includes("são paulo") ||
 texto.includes("vasco") ||
   texto.includes("milan") ||
 
+<script>
+  // Esta função esconde a tela branca
+  function fecharAgora() {
+    var loader = document.getElementById("meuLoader");
+    if (loader) {
+      loader.style.display = "none";
+    }
+  }
+
+  // Conta 3 segundos e executa a função acima
+  setTimeout(fecharAgora, 3000);
+</script>
 
