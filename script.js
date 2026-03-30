@@ -1,7 +1,6 @@
 // 1. FUNÇÃO PARA ABRIR/FECHAR A ABA DE FILTROS
 function toggleFiltros() {
     let aba = document.getElementById("abaFiltros");
-    // Alterna entre mostrar (flex) e esconder (none)
     if (aba.style.display === "flex") {
         aba.style.display = "none";
     } else {
@@ -9,31 +8,29 @@ function toggleFiltros() {
     }
 }
 
-// 2. FUNÇÃO DOS BOTÕES DE LIGAS (FILTRAR POR CATEGORIA)
+// 2. FUNÇÃO DOS BOTÕES DE LIGAS (CORRIGIDA)
 function filtrarCategoria(categoria) {
     let cards = document.querySelectorAll(".card");
     cards.forEach(card => {
-        // Se clicar em 'todos', mostra tudo. Caso contrário, filtra pela classe.
         if (categoria === "todos") {
-            card.style.display = "flex";
+            card.style.display = ""; // Deixa o CSS original agir
         } else if (card.classList.contains(categoria)) {
-            card.style.display = "flex";
+            card.style.display = ""; // Deixa o CSS original agir
         } else {
             card.style.display = "none";
         }
     });
 }
 
-// 3. FUNÇÃO DA BARRA DE PESQUISA (PESQUISAR POR TEXTO)
+// 3. FUNÇÃO DA BARRA DE PESQUISA (CORRIGIDA)
 function pesquisarCamisa() {
     let entrada = document.getElementById("campoPesquisa").value.toLowerCase();
     let cards = document.querySelectorAll(".card");
 
     cards.forEach(card => {
         let conteudo = card.innerText.toLowerCase();
-        // Se o texto digitado estiver no card, ele aparece
         if (conteudo.includes(entrada)) {
-            card.style.display = "flex";
+            card.style.display = ""; // Deixa o CSS original agir
         } else {
             card.style.display = "none";
         }
@@ -58,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function() {
     cards.forEach(card => {
         let texto = card.innerText.toLowerCase();
 
-        /* ETIQUETA LANÇAMENTO (Se tiver '26/27' no texto) */
+        /* ETIQUETA LANÇAMENTO */
         if (texto.includes("26/27")) {
             let tagL = document.createElement("div");
             tagL.classList.add("etiqueta-lancamento");
@@ -66,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
             card.appendChild(tagL);
         }
 
-        /* ETIQUETA MAIS VENDIDA (Sua lógica de times populares corrigida) */
+        /* ETIQUETA MAIS VENDIDA */
         if (
             texto.includes("flamengo") ||
             texto.includes("corinthians") ||
