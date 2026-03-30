@@ -1,795 +1,194 @@
-body{
-font-family:Arial;
-margin:0;
-background:#f4f4f4;
-}
-
-header{
-background:#111;
-color:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:15px 40px;
-}
-
-nav a{
-margin-left:15px;
-text-decoration:none;
-color:white;
-padding:8px 15px;
-border-radius:5px;
-}
-
-.insta{
-background:#E1306C;
-}
-
-.whats{
-background:#25D366;
-}
-
-/* FILTROS */
-
-.filtros{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:5px;
-padding:10px;
-}
-
-.filtros button{
-padding:5px 10px;
-border:none;
-background:#111;
-color:white;
-cursor:pointer;
-border-radius:5px;
-}
-
-/* CATÁLOGO */
-
-.catalogo{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-padding:40px;
-}
-
-/* CARD DA CAMISA */
-
-.card{
-background:white;
-padding:20px;
-border-radius:10px;
-text-align:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-max-width:300px;
-margin:auto;
-}
-
-/* IMAGEM */
-
-.card img{
-width:100%;
-height:320px;
-object-fit:contain;
-}
-
-/* PREÇO */
-
-.preco{
-display:block;
-font-size:20px;
-font-weight:bold;
-margin:10px 0;
-}
-
-/* BOTÃO WHATSAPP */
-
-.comprar{
-display:inline-block;
-padding:10px 15px;
-background:#25D366;
-color:white;
-text-decoration:none;
-border-radius:5px;
-}
-
-footer{
-text-align:center;
-padding:20px;
-background:#111;
-color:white;
-}
-
-/* BARRA PROMOCIONAL PREMIUM */
-
-.barra-promocao{
-
-background: linear-gradient(90deg,#000,#c9a227,#000);
-
-color:white;
-
-overflow:hidden;
-
-border-bottom:3px solid #c9a227;
-
-font-family:'Poppins', sans-serif;
-
-box-shadow:0 4px 10px rgba(0,0,0,0.4);
-
-}
-
-.promo-animada{
-
-display:flex;
-
-gap:120px;
-
-padding:14px 0;
-
-white-space:nowrap;
-
-animation:animarPromo 22s linear infinite;
-
-font-size:18px;
-
-font-weight:600;
-
-letter-spacing:1px;
-
-}
-
-.promo-animada span{
-
-display:inline-block;
-
-color:#fff;
-
-text-shadow:0 2px 5px rgba(0,0,0,0.6);
-
-}
-
-/* ANIMAÇÃO */
-
-@keyframes animarPromo{
-
-0%{
-transform:translateX(100%);
-}
-
-100%{
-transform:translateX(-100%);
-}
-
-}
-
-/* BOTÃO WHATSAPP FLUTUANTE */
-
-.whatsapp-float{
-
-position:fixed;
-
-bottom:25px;
-
-right:25px;
-
-background:#25D366;
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-box-shadow:0 8px 25px rgba(0,0,0,0.3);
-
-z-index:999;
-
-transition:0.3s;
-
-}
-
-.whatsapp-float img{
-
-width:35px;
-
-height:35px;
-
-}
-
-.whatsapp-float:hover{
-
-transform:scale(1.1);
-
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-
-}
-
-/* FOOTER PROFISSIONAL */
-
-.footer{
-
-background:#111;
-
-color:white;
-
-padding:40px 20px 20px;
-
-margin-top:40px;
-
-}
-
-.footer-container{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-
-gap:30px;
-
-max-width:1200px;
-
-margin:auto;
-
-}
-
-.footer-col h3{
-
-margin-bottom:10px;
-
-font-size:18px;
-
-}
-
-.footer-col p{
-
-margin:6px 0;
-
-font-size:14px;
-
-color:#ccc;
-
-}
-
-.footer-col a{
-
-color:white;
-
-text-decoration:none;
-
-font-size:14px;
-
-}
-
-.footer-col a:hover{
-
-text-decoration:underline;
-
-}
-
-.footer-copy{
-
-text-align:center;
-
-margin-top:30px;
-
-border-top:1px solid #333;
-
-padding-top:15px;
-
-font-size:13px;
-
-color:#aaa;
-
-}
-
-.pesquisa{
-
-display:flex;
-
-justify-content:center;
-
-margin:40px 0;
-
-}
-
-.pesquisa input{
-
-width:70%;
-
-max-width:600px;
-
-padding:15px 22px;
-
-border-radius:40px;
-
-border:2px solid #ddd;
-
-font-size:17px;
-
-outline:10px;
-
-transition:0.3s;
-
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-
-}
-
-.pesquisa input:focus{
-
-border-color:#25D366;
-
-box-shadow:0 0 12px rgba(37,211,102,0.35);
-
-}
-/* BOTÃO BUSCAR */
-
-.botao-buscar{
-
-margin-left:10px;
-
-padding:15px 25px;
-
-font-size:18px;
-
-background:#111;
-
-color:white;
-
-border:none;
-
-border-radius:40px;
-
-cursor:pointer;
-
-transition:0.3s;
-
-}
-
-.botao-buscar:hover{
-
-background:#25D366;
-
-}
-
-/* FAQ */
-
-.faq{
-
-padding:50px 20px;
-
-max-width:1000px;
-
-margin:auto;
-
-}
-
-.faq h2{
-
-text-align:center;
-
-margin-bottom:30px;
-
-font-size:28px;
-
-}
-
-.pergunta{
-
-background:white;
-
-padding:20px;
-
-margin-bottom:15px;
-
-border-radius:10px;
-
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-
-}
-
-.pergunta h3{
-
-margin-bottom:8px;
-
-}
-
-/* FEEDBACKS */
-
-.feedbacks{
-
-background:#f5f5f5;
-
-padding:50px 20px;
-
-}
-
-.feedbacks h2{
-
-text-align:center;
-
-margin-bottom:30px;
-
-font-size:28px;
-
-}
-
-.comentarios{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:20px;
-
-max-width:1000px;
-
-margin:auto;
-
-}
-
-.comentario{
-
-background:white;
-
-padding:20px;
-
-border-radius:10px;
-
-box-shadow:0 5px 15px rgba(0,0,0,0.1);
-
-}
-
-.comentario span{
-
-display:block;
-
-margin-top:10px;
-
-font-size:14px;
-
-color:#555;
-
-}
-
-
-/* POSIÇÃO PARA ETIQUETA */
-
-.card{
-position:relative;
-}
-
-/* ETIQUETA LANÇAMENTO */
-
-.etiqueta-lancamento{
-
-position:absolute;
-
-top:10px;
-
-left:10px;
-
-background:linear-gradient(45deg,#FFD700,#c9a100);
-
-color:#000;
-
-font-size:12px;
-
-font-weight:bold;
-
-padding:6px 10px;
-
-border-radius:6px;
-
-box-shadow:0 3px 10px rgba(0,0,0,0.2);
-
-z-index:5;
-
-}
-
-/* ETIQUETA MAIS VENDIDA */
-
-.etiqueta-vendida{
-
-position:absolute;
-
-top:10px;
-
-right:10px;
-
-background:#ff2a2a;
-
-color:white;
-
-font-size:12px;
-
-font-weight:bold;
-
-padding:6px 10px;
-
-border-radius:6px;
-
-box-shadow:0 3px 10px rgba(0,0,0,0.2);
-
-z-index:5;
-
-}
-
-/* Fonte estilosa para H2 do catálogo */
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
-.catalogo h2 {
-    font-family: 'Anton', sans-serif; /* Fonte mais “futebolística” */
-    font-size: 4rem; /* Fonte grande e impactante */
-    text-transform: uppercase; /* Letras maiúsculas */
-    text-align: center; /* Centralizado */
-    letter-spacing: 2px;
-
-    /* Degradê dourado para preto */
-    background: linear-gradient(90deg, #FFD700, #000000);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-
-    /* Sombra para destaque */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
-
-    margin-bottom: 40px;
-}
-
-
-/* SUAVIDADE GERAL */
-
-.card{
-transition: all 0.3s ease;
-}
-
-/* EFEITO AO PASSAR O MOUSE (PC) */
-
-.card:hover{
-
-transform:scale(1.05);
-
-box-shadow:0 15px 35px rgba(0,0,0,0.25);
-
-border:2px solid #d4af37;
-
-}
-
-
-/* ZOOM NA CAMISA */
-
-.card img{
-
-transition:transform 0.3s ease;
-
-}
-
-.card:hover img{
-
-transform:scale(1.08);
-
-}
-
-
-/* BOTÃO WHATSAPP */
-
-.comprar{
-
-transition:all 0.3s ease;
-
-}
-
-.comprar:hover{
-
-background:#1ebe5d;
-
-transform:scale(1.05);
-
-}
-
-
-/* EFEITO DE TOQUE (CELULAR) */
-
-.card:active{
-
-transform:scale(0.97);
-
-}
-
-.comprar:active{
-
-transform:scale(0.93);
-
-}
-
-
-/* ====================================================== */
-/* 1. ESTILO DO CARTÃO (A caixa inteira do produto)       */
-/* ====================================================== */
-.card {
-  width: 280px; /* Largura do cartão */
-  border: 1px solid #eee; /* Borda bem clarinha */
-  border-radius: 10px; /* Bordas arredondadas */
-  padding: 15px; /* Espaço interno */
-  text-align: center; /* Centraliza os textos */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra leve para destacar */
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-}
-
-/* ====================================================== */
-/* 2. O EFEITO DE VIRAR A CAMISA (A Mágica)               */
-/* ====================================================== */
-
-/* Mantém o container quadrado e prepara para a sobreposição */
-.imagem-container {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Força a imagem a ficar 100% quadrada */
-  overflow: hidden;
-  border-radius: 8px; /* Arredonda os cantos da foto */
-  cursor: pointer; /* Deixa o mouse com formato de "mãozinha" */
-  margin-bottom: 15px;
-}
-
-/* Configura as duas fotos para ocuparem o mesmo espaço */
-.imagem-container img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Impede que a foto fique esticada ou achatada */
-  transition: opacity 0.4s ease-in-out; /* Transição suave de 0.4 segundos */
-}
-
-/* Esconde a foto das costas inicialmente */
-.imagem-container .foto-costas {
-  opacity: 0;
-}
-
-/* Quando o mouse passa por cima: mostra as costas e esconde a frente */
-.imagem-container:hover .foto-costas {
-  opacity: 1;
-}
-
-.imagem-container:hover .foto-frente {
-  opacity: 0;
-}
-
-/* ====================================================== */
-/* 3. ESTILOS DOS TEXTOS E BOTÃO                          */
-/* ====================================================== */
-.card h3 {
-  margin: 0 0 5px 0;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.card p {
-  color: #777;
-  font-size: 0.9rem;
-  margin: 0 0 10px 0;
-}
-
-.card .preco {
-  display: block;
-  font-size: 1.3rem;
-  font-weight: bold;
-  color: #27ae60; /* Verde escuro para o preço */
-  margin-bottom: 15px;
-}
-
-.card .comprar {
-  display: block;
-  background-color: #25D366; /* Verde do WhatsApp */
-  color: white;
-  text-decoration: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.card .comprar:hover {
-  background-color: #1ebe5d; /* Escurece o botão ao passar o mouse */
-}
-
-
-
-
-
-
-.catalogo {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    justify-items: center; /* Isso centraliza o card dentro da "grade" dele */
-    gap: 30px;
-    padding: 40px;
-}
-
-
-/* --- SEÇÃO DE FILTROS (90+3 PREMIUM) --- */
-
-/* Botão principal que abre as opções */
+/* =========================================
+   ESTILOS GERAIS DA PÁGINA
+========================================= */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Fundo claro para destacar os cards */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* =========================================
+   BARRA DE PESQUISA
+========================================= */
+#campoPesquisa {
+    width: 70%;
+    max-width: 400px;
+    padding: 12px;
+    margin-top: 20px;
+    border: 2px solid #ccc;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+}
+
+#campoPesquisa:focus {
+    border-color: #c9a227; /* Fica dourado ao clicar */
+}
+
+/* =========================================
+   BOTÕES DE FILTRO (PREMIUM 90+3)
+========================================= */
 .btn-filtro-principal {
-    background-color: #000; /* Preto total */
-    color: #c9a227; /* Dourado da sua marca */
-    border: 2px solid #c9a227; /* Borda dourada */
+    background-color: #000;
+    color: #c9a227;
+    border: 2px solid #c9a227;
     padding: 14px 28px;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 50px; /* Extremamente arredondado */
+    border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
     text-transform: uppercase;
     letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
 }
 
-/* Efeito ao passar o mouse no botão principal */
 .btn-filtro-principal:hover {
-    transform: scale(1.1); /* Aumenta de tamanho */
+    transform: scale(1.05);
     background-color: #c9a227;
     color: #000;
-    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
 }
 
-/* Container que guarda os botões das ligas */
 .filtros-container {
-    display: none; /* Começa escondido (o JS vai mudar para flex) */
+    display: none; /* Começa escondido, o JS controla isso */
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
-    padding: 25px;
-    background: #1a1a1a; /* Cinza quase preto para destacar do fundo */
-    margin: 20px auto;
-    max-width: 900px;
+    gap: 10px;
+    padding: 20px;
+    background: #1a1a1a;
+    margin: 10px auto 30px auto;
+    max-width: 90%;
     border-radius: 20px;
     border: 1px solid #333;
-    animation: fadeIn 0.4s ease-in-out; /* Efeito suave ao abrir */
 }
 
-/* Botões das Ligas (Brasileirão, Europeus, Seleções) */
 .btn-liga {
     background-color: #000;
     color: #fff;
     border: 1px solid #c9a227;
-    padding: 12px 24px;
-    border-radius: 40px; /* Bem arredondado */
+    padding: 10px 20px;
+    border-radius: 30px;
     cursor: pointer;
     font-weight: 600;
-    font-size: 16px;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 15px;
+    transition: all 0.3s;
 }
 
-/* Efeito ao passar o mouse ou clicar nas ligas */
-.btn-liga:hover, .btn-liga:focus {
+.btn-liga:hover {
     background-color: #c9a227;
     color: #000;
-    transform: scale(1.15); /* Aumenta um pouco mais que o principal */
-    box-shadow: 0 8px 20px rgba(201, 162, 39, 0.4);
 }
 
-/* Animação suave para a aba de filtros aparecer */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* =========================================
+   OS CARDS DOS PRODUTOS (A CORREÇÃO AQUI!)
+========================================= */
+/* Container que segura todos os cards */
+.container-camisas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-/* Ajuste de responsividade para celular */
-@media (max-width: 600px) {
-    .btn-liga {
-        width: 80%; /* Botões maiores no toque do celular */
-        font-size: 15px;
-    }
+/* O Card Individual */
+.card {
+    background-color: #fff;
+    width: 280px; /* Largura fixa para todos ficarem iguais */
+    display: flex;
+    flex-direction: column; /* FORÇA A IMAGEM FICAR EM CIMA E TEXTO EMBAIXO */
+    align-items: center;    /* Centraliza o conteúdo */
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding-bottom: 15px;
+    overflow: hidden; /* Corta o que sobrar fora da borda arredondada */
+    position: relative; /* FUNDAMENTAL para as etiquetas funcionarem */
+    transition: transform 0.3s;
 }
+
+.card:hover {
+    transform: translateY(-5px); /* Efeito de flutuar ao passar o dedo/mouse */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* A Imagem da Camisa */
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+}
+
+/* Textos dentro do Card */
+.card h3 {
+    margin: 15px 0 5px 0;
+    font-size: 20px;
+    color: #000;
+    text-transform: uppercase;
+}
+
+.card p {
+    margin: 0 0 10px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.preco {
+    font-size: 22px;
+    font-weight: bold;
+    color: #28a745; /* Verde para destacar o preço */
+    margin-bottom: 15px;
+}
+
+/* Botão do WhatsApp */
+.comprar {
+    background-color: #25D366; /* Verde Oficial do WhatsApp */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 16px;
+    width: 80%;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.comprar:hover {
+    background-color: #1ebe5d;
+}
+
+/* =========================================
+   ETIQUETAS AUTOMÁTICAS (CRIADAS PELO JS)
+========================================= */
+.etiqueta-vendida {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff2a2a; /* Vermelho forte */
+    color: white;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
+.etiqueta-lancamento {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: #c9a227; /* Dourado da 90+3 */
+    color: #000;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    z-index: 10;
+}
+
