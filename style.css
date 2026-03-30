@@ -716,3 +716,80 @@ transform:scale(0.93);
     gap: 30px;
     padding: 40px;
 }
+
+
+/* --- SEÇÃO DE FILTROS (90+3 PREMIUM) --- */
+
+/* Botão principal que abre as opções */
+.btn-filtro-principal {
+    background-color: #000; /* Preto total */
+    color: #c9a227; /* Dourado da sua marca */
+    border: 2px solid #c9a227; /* Borda dourada */
+    padding: 14px 28px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px; /* Extremamente arredondado */
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Efeito ao passar o mouse no botão principal */
+.btn-filtro-principal:hover {
+    transform: scale(1.1); /* Aumenta de tamanho */
+    background-color: #c9a227;
+    color: #000;
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.5);
+}
+
+/* Container que guarda os botões das ligas */
+.filtros-container {
+    display: none; /* Começa escondido (o JS vai mudar para flex) */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 25px;
+    background: #1a1a1a; /* Cinza quase preto para destacar do fundo */
+    margin: 20px auto;
+    max-width: 900px;
+    border-radius: 20px;
+    border: 1px solid #333;
+    animation: fadeIn 0.4s ease-in-out; /* Efeito suave ao abrir */
+}
+
+/* Botões das Ligas (Brasileirão, Europeus, Seleções) */
+.btn-liga {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #c9a227;
+    padding: 12px 24px;
+    border-radius: 40px; /* Bem arredondado */
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Efeito ao passar o mouse ou clicar nas ligas */
+.btn-liga:hover, .btn-liga:focus {
+    background-color: #c9a227;
+    color: #000;
+    transform: scale(1.15); /* Aumenta um pouco mais que o principal */
+    box-shadow: 0 8px 20px rgba(201, 162, 39, 0.4);
+}
+
+/* Animação suave para a aba de filtros aparecer */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste de responsividade para celular */
+@media (max-width: 600px) {
+    .btn-liga {
+        width: 80%; /* Botões maiores no toque do celular */
+        font-size: 15px;
+    }
+}
