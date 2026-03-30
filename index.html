@@ -13,29 +13,6 @@
     
     <link rel="stylesheet" href="style.css">
 
-<style>
-  /* A tela branca */
-  .tela-carregamento {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: white;
-    display: flex; justify-content: center; align-items: center;
-    z-index: 999999; /* Fica na frente de tudo */
-  }
-  /* O círculo girando */
-  .circulo {
-    width: 50px; height: 50px;
-    border: 5px solid #f3f3f3;
-    border-top: 5px solid #3498db;
-    border-radius: 50%;
-    animation: girar 1s linear infinite;
-  }
-  @keyframes girar {
-    to { transform: rotate(360deg); }
-  }
-</style>
-
     
     
 </head>
@@ -44,23 +21,6 @@
 
 
 <body>
-
-
-  <div class="tela-carregamento" id="meuLoader">
-  <div class="circulo"></div>
-</div>
-
-    
-<div id="loader">
-  <div class="spinner"></div>
-  <p>Carregando conteúdo...</p>
-</div>
-
-<!-- O conteúdo do seu site vem abaixo -->
-<div id="content" style="display:none;">
-  <!-- Suas imagens e textos aqui -->
-</div>
-
     
     <div class="barra-promocao">
 
@@ -614,19 +574,7 @@
 
     <!-- ... fim do conteúdo do seu site ... -->
 
-    <script>
-        // Função para esconder o loader
-        function sumirLoader() {
-            var loader = document.getElementById("loader-wrapper");
-            if (loader) {
-                loader.style.display = "none";
-            }
-        }
-
-        // Força o sumiço após 3 segundos (3000ms)
-        setTimeout(sumirLoader, 3000);
-    </script>
-    
+   
 </body>
 </html>
 
