@@ -105,3 +105,30 @@ texto.includes("são paulo") ||
 texto.includes("vasco") ||
   texto.includes("milan") ||
 
+function pesquisarCamisa() {
+    // 1. Pega o texto que o usuário digitou
+    let entrada = document.getElementById("campoPesquisa").value.toLowerCase();
+    
+    // 2. Busca todos os elementos que têm a classe "card" (seus produtos)
+    let cards = document.querySelectorAll(".card");
+
+    // 3. Percorre cada card para decidir se mostra ou esconde
+    cards.forEach(card => {
+        // Pega todo o texto dentro do card (Nome do time, temporada, preço)
+        let conteudoCard = card.innerText.toLowerCase();
+
+        // 4. Se o que foi digitado estiver no texto do card, ele aparece
+        if (conteudoCard.includes(entrada)) {
+            card.style.display = "flex"; // Usa flex para manter seu layout original
+        } else {
+            card.style.display = "none"; // Esconde o que não combina
+        }
+    });
+}
+
+// BÔNUS: Faz a busca funcionar ao apertar a tecla "Enter"
+document.getElementById("campoPesquisa").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        pesquisarCamisa();
+    }
+});
