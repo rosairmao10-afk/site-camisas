@@ -420,3 +420,39 @@ body {
     transform: translateZ(0); /* Força o uso da placa de vídeo do celular */
     backface-visibility: hidden;
 }
+
+
+/* =========================================
+   10. INDICADORES DE TAMANHO NO ESTOQUE (90+3)
+========================================= */
+.tamanhos {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+
+/* O formato do quadradinho de tamanho */
+.tamanho-badge {
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px;
+}
+
+/* Tamanho EM ESTOQUE (Dourado da loja) */
+.tamanho-badge.disponivel {
+    background-color: #c9a227;
+    color: #000;
+    border: 1px solid #c9a227;
+}
+
+/* Tamanho ESGOTADO (Cinza apagado e riscado) */
+.tamanho-badge.esgotado {
+    background-color: #f4f4f4;
+    color: #bbb;
+    border: 1px solid #ddd;
+    text-decoration: line-through; /* Dá o efeito de riscado */
+}
