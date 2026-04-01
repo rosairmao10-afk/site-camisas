@@ -43,16 +43,14 @@ function pesquisarCamisa() {
     });
 }
 
-// 4. LÓGICA AUTOMÁTICA AO CARREGAR O SITE
 document.addEventListener("DOMContentLoaded", function() {
     
-    //atalho: pesquisa no Enter
-    let campo = document.getElementById("campoPesquisa");
-    if(campo) {
-        campo.addEventListener("keypress", function(event) {
-            if (event.key === "Enter") pesquisarCamisa();
-        });
-    }
+    // COLE ISSO AQUI (Automação para carregar as fotos só quando o cliente rolar a tela)
+    document.querySelectorAll("img").forEach(img => {
+        img.setAttribute("loading", "lazy");
+    });
+
+    // ... resto do seu código de etiquetas e giro de fotos ...
 
     // Gerenciamento Automático de Etiquetas
     let cards = document.querySelectorAll(".card, .camisa");
@@ -71,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         /* ETIQUETA MAIS VENDIDA (Sua lógica de times populares) */
-        if (texto.includes("flamengo") || texto.includes("corinthians") || texto.includes("palmeiras") || texto.includes("são paulo") || texto.includes("vasco") || texto.includes("milan") || texto.includes("real madrid")) {
+        if (texto.includes("flamengo") || texto.includes("corinthians") || texto.includes("palmeiras") || texto.includes("são paulo") || texto.includes("brasil") || texto.includes("psg") || texto.includes("real madrid")) {
             if (!card.querySelector('.etiqueta-vendida')) {
                 let tagV = document.createElement("div");
                 tagV.classList.add("etiqueta-vendida");
