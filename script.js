@@ -1,9 +1,8 @@
 // 1. ABRE/FECHA A ABA DE FILTROS (Com proteção de erro)
 function toggleFiltros() {
     let aba = document.getElementById("abaFiltros");
-    if (!aba) return; // Proteção: se não achar a aba, ignora
+    if (!aba) return; 
     
-    // Alterna o display entre flex (abre) e none (fecha)
     if (aba.style.display === "flex") {
         aba.style.display = "none";
     } else {
@@ -11,15 +10,15 @@ function toggleFiltros() {
     }
 }
 
-// 2. FILTRA LIGAS (Procura por .card ou .camisa)
+// 2. FILTRA LIGAS 
 function filtrarCategoria(categoria) {
-    let cards = document.querySelectorAll(".card, .camisa");
+    // AQUI FOI ALTERADO: Ignora a aba de promoções
+    let cards = document.querySelectorAll(".card:not(.promocao)");
     cards.forEach(card => {
-        // Se clicar em 'todos', mostra. Caso contrário, filtra pela classe.
         if (categoria === "todos" || card.classList.contains(categoria)) {
-            card.style.display = ""; // Volta ao normal do CSS
+            card.style.display = ""; 
         } else {
-            card.style.display = "none"; // Esconde
+            card.style.display = "none"; 
         }
     });
 }
@@ -30,11 +29,11 @@ function pesquisarCamisa() {
     if (!campo) return; 
 
     let entrada = campo.value.toLowerCase();
-    let cards = document.querySelectorAll(".card, .camisa");
+    // AQUI FOI ALTERADO: Ignora a aba de promoções
+    let cards = document.querySelectorAll(".card:not(.promocao)");
 
     cards.forEach(card => {
         let conteudo = card.innerText.toLowerCase();
-        // Se o texto digitado estiver no card, ele aparece
         if (conteudo.includes(entrada)) {
             card.style.display = "";
         } else {
@@ -43,23 +42,33 @@ function pesquisarCamisa() {
     });
 }
 
+// 4. LÓGICA AUTOMÁTICA AO CARREGAR O SITE
 document.addEventListener("DOMContentLoaded", function() {
     
-    // COLE ISSO AQUI (Automação para carregar as fotos só quando o cliente rolar a tela)
-    document.querySelectorAll("img").forEach(img => {
-        img.setAttribute("loading", "lazy");
+    // 4.1 AUTOMAÇÃO DE PERFORMANCE (Lazy Load para não travar)
+    let todasAsImagens = document.querySelectorAll("img");
+    todasAsImagens.forEach(img => {
+        if (!img.getAttribute("loading")) {
+            img.setAttribute("loading", "lazy");
+        }
     });
 
-    // ... resto do seu código de etiquetas e giro de fotos ...
+    // Atalho: pesquisa no Enter
+    let campo = document.getElementById("campoPesquisa");
+    if(campo) {
+        campo.addEventListener("keypress", function(event) {
+            if (event.key === "Enter") pesquisarCamisa();
+        });
+    }
 
     // Gerenciamento Automático de Etiquetas
-    let cards = document.querySelectorAll(".card, .camisa");
+    // AQUI FOI ALTERADO: Ignora a aba de promoções para não colar etiqueta duplicada
+    let cards = document.querySelectorAll(".card:not(.promocao)");
     cards.forEach(card => {
         let texto = card.innerText.toLowerCase();
 
-        /* ETIQUETA LANÇAMENTO (Se tiver '26/27' no texto) */
-        if (texto.includes("26/27")) {
-            // Só adiciona se já não tiver uma etiqueta lá dentro
+        /* ETIQUETA LANÇAMENTO */
+        if (texto.includes("26/27") || texto.includes("2026")) {
             if (!card.querySelector('.etiqueta-lancamento')) {
                 let tagL = document.createElement("div");
                 tagL.classList.add("etiqueta-lancamento");
@@ -68,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        /* ETIQUETA MAIS VENDIDA (Sua lógica de times populares) */
-        if (texto.includes("flamengo") || texto.includes("corinthians") || texto.includes("palmeiras") || texto.includes("são paulo") || texto.includes("brasil") || texto.includes("psg") || texto.includes("real madrid")) {
+        /* ETIQUETA MAIS VENDIDA */
+        if (texto.includes("flamengo") || texto.includes("corinthians") || texto.includes("palmeiras") || texto.includes("são paulo") || texto.includes("vasco") || texto.includes("milan") || texto.includes("real madrid")) {
             if (!card.querySelector('.etiqueta-vendida')) {
                 let tagV = document.createElement("div");
                 tagV.classList.add("etiqueta-vendida");
@@ -85,19 +94,14 @@ document.addEventListener("DOMContentLoaded", function() {
     containersImagem.forEach(container => {
         let imagens = container.querySelectorAll("img");
         
-        // Só aplica o efeito se o container tiver as duas fotos (frente e costas)
         if (imagens.length >= 2) {
-            // Esconde a segunda imagem (costas) logo de cara
             imagens[1].style.display = "none";
             
-            // Quando clicar no container da foto, ele alterna
             container.addEventListener("click", function() {
                 if (imagens[0].style.display === "none") {
-                    // Mostra a frente, esconde as costas
                     imagens[0].style.display = "block";
                     imagens[1].style.display = "none";
                 } else {
-                    // Esconde a frente, mostra as costas
                     imagens[0].style.display = "none";
                     imagens[1].style.display = "block";
                 }
