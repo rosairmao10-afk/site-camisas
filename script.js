@@ -164,8 +164,8 @@ document.addEventListener("DOMContentLoaded", function() {
 // ==========================================
 // 6. GATILHO DE PROVA SOCIAL (BALÃO)
 // ==========================================
-const nomes = ["Lucas", "Mateus", "Rafael", "Felipe", "Thiago", "Pedro", "Gabriel", "Mariana"];
-const locais = ["do Centro", "da Vila Rio Branco", "da Chapadinha", "do Jardim Itália", "de Itapetininga", "da Vila Regina"];
+const nomes = ["Lucas", "Marcos", "Matheus", "Rafael", "Felipe", "Thiago", "Pedro", "Gabriel", "Mariana"];
+const locais = ["do Bela Vista, Itapetininga", "da Vila Rio Branco, Itapetininga", "da Chapadinha, Itapetininga", "de São Miguel Arcanjo", "de Angatuba", "de Tatuí"];
 const produtosComprados = ["o Kit do Brasil", "a camisa do Flamengo", "a camisa do Real Madrid", "a camisa do Corinthians", "a camisa do São Paulo"];
 
 function exibirProvaSocial() {
@@ -200,8 +200,8 @@ setTimeout(() => {
 function resgatarTicket() {
     document.getElementById("ticket-secreto").style.display = "none";
     
-    alert("🎟️ VOCÊ ACHOU O TICKET DOURADO!\n\nTire um print desta tela e mande no WhatsApp da 90+3 para ganhar 15% OFF no valor TOTAL das suas camisas!");
+    alert(" VOCÊ ACHOU O TICKET DOURADO!\n\nTire um print desta tela e mande no WhatsApp da 90+3 para ganhar 15% OFF no valor TOTAL das suas camisas!");
     
-    let mensagem = "Achei o Ticket Dourado no site! Quero meus 15% OFF nas camisas da vitrine 🎟️⚽";
+    let mensagem = "Achei o Ticket Dourado no site! Quero meus 15% OFF nas camisas da vitrine";
     window.open(`https://wa.me/5515991617508?text=${encodeURIComponent(mensagem)}`, '_blank');
 }
