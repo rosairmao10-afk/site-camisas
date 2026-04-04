@@ -80,7 +80,7 @@ body {
 }
 #campoPesquisa:focus { border-color: #c9a227; }
 
-/* 5. BOTÕES DE FILTRO */
+/* 5. BOTÃO PRINCIPAL DE FILTRO E NOVOS CARDS DE FILTRO */
 .btn-filtro-principal {
     background-color: #000;
     color: #c9a227;
@@ -104,27 +104,41 @@ body {
     display: none;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     padding: 20px;
-    background: #1a1a1a;
+    background: transparent;
     margin: 10px auto 30px auto;
-    max-width: 90%;
-    border-radius: 20px;
+    max-width: 95%;
+    border: none;
+}
+.card-categoria {
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
     border: 1px solid #333;
-}
-.btn-liga {
-    background-color: #000;
+    border-radius: 12px;
+    width: 90px;
+    padding: 15px 10px;
     color: #fff;
-    border: 1px solid #c9a227;
-    padding: 10px 20px;
-    border-radius: 30px;
     cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
-.btn-liga:hover {
-    background-color: #c9a227;
-    color: #000;
+.card-categoria p {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+.emoji-cat {
+    font-size: 28px;
+    display: block;
+    transition: transform 0.3s;
+}
+.card-categoria:hover {
+    transform: translateY(-8px);
+    border-color: #c9a227;
+    box-shadow: 0 8px 15px rgba(201, 162, 39, 0.2);
+}
+.card-categoria:hover .emoji-cat {
+    transform: scale(1.2);
 }
 
 /* 6. CARDS DOS PRODUTOS */
@@ -431,3 +445,61 @@ body {
     cursor: pointer;
 }
 .close:hover { color: #000; }
+
+/* ========================================== */
+/* 12. GATILHOS DE VENDAS E EASTER EGG        */
+/* ========================================== */
+
+/* BALÃO DE PROVA SOCIAL */
+#balao-prova {
+    position: fixed;
+    bottom: 20px;
+    left: -350px; /* Escondido fora da tela */
+    background: #fff;
+    color: #000;
+    border-left: 5px solid #c9a227;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    transition: left 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    z-index: 999;
+    width: max-content;
+    max-width: 280px;
+    text-align: left;
+}
+#balao-prova p { margin: 0; line-height: 1.4; }
+#balao-prova.mostrar { left: 20px; } /* Desliza para dentro */
+
+/* EASTER EGG: TICKET ESCONDIDO */
+#ticket-secreto {
+    position: fixed;
+    top: 45%; /* Fica no meio da tela */
+    right: -30px; /* Esconde 80% do ticket */
+    background: #c9a227;
+    color: #000;
+    padding: 15px 10px;
+    border-radius: 10px 0 0 10px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    z-index: 80;
+    box-shadow: -4px 0px 10px rgba(0,0,0,0.4);
+    border: 2px dashed #000;
+    border-right: none;
+}
+.texto-ticket {
+    writing-mode: vertical-rl; /* Deixa o texto em pé */
+    text-orientation: mixed;
+    font-weight: 900;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+#ticket-secreto:hover {
+    right: 0; /* Puxa o ticket para fora */
+    background: #ff2a2a; /* Fica vermelho chamativo */
+    color: #fff;
+    border-color: #fff;
+}
