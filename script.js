@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // ==========================================
 const nomes = ["Lucas", "Marcos", "Matheus", "Rafael", "Felipe", "Thiago", "Pedro", "Gabriel", "Mariana"];
 const locais = ["do Bela Vista, Itapetininga", "da Vila Rio Branco, Itapetininga", "da Chapadinha, Itapetininga", "de São Miguel Arcanjo", "de Angatuba", "de Tatuí"];
-const produtosComprados = ["o Kit do Brasil", "a camisa do Flamengo", "a camisa do Real Madrid", "a camisa do Corinthians", "a camisa do São Paulo"];
+const produtosComprados = ["o Kit do Brasil", "uma camisa do Flamengo", "uma camisa do Real Madrid", "uma camisa do Corinthians e Barcelona", "uma camisa do São Paulo e kit Brasil 2026"];
 
 function exibirProvaSocial() {
     let nome = nomes[Math.floor(Math.random() * nomes.length)];
@@ -183,7 +183,7 @@ function exibirProvaSocial() {
         
         setTimeout(() => {
             balao.classList.remove("mostrar");
-        }, 5000);
+        }, 4000);
     }
 }
 
@@ -191,8 +191,8 @@ function exibirProvaSocial() {
 setTimeout(() => {
     exibirProvaSocial();
     // Depois, repete aleatoriamente entre 15 e 30 segundos
-    setInterval(exibirProvaSocial, Math.floor(Math.random() * (35000 - 20000 + 1) + 20000));
-}, 8500);
+    setInterval(exibirProvaSocial, Math.floor(Math.random() * (10000 - 70000 + 1) + 90000));
+}, 30000);
 
 // ==========================================
 // 7. EASTER EGG (TICKET 15% OFF)
