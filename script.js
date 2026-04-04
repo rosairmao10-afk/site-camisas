@@ -191,8 +191,8 @@ function exibirProvaSocial() {
 setTimeout(() => {
     exibirProvaSocial();
     // Depois, repete aleatoriamente entre 15 e 30 segundos
-    setInterval(exibirProvaSocial, Math.floor(Math.random() * (30000 - 15000 + 1) + 15000));
-}, 8000);
+    setInterval(exibirProvaSocial, Math.floor(Math.random() * (35000 - 20000 + 1) + 20000));
+}, 8500);
 
 // ==========================================
 // 7. EASTER EGG (TICKET 15% OFF)
@@ -202,6 +202,6 @@ function resgatarTicket() {
     
     alert(" VOCÊ ACHOU O TICKET DOURADO!\n\nTire um print desta tela e mande no WhatsApp da 90+3 para ganhar 15% OFF no valor TOTAL das suas camisas!");
     
-    let mensagem = "Achei o Ticket Dourado no site! Quero meus 15% OFF nas camisas da vitrine";
+    let mensagem = "Achei o Ticket Dourado no site! Quero meus 15% OFF nas camisas da vitrine ";
     window.open(`https://wa.me/5515991617508?text=${encodeURIComponent(mensagem)}`, '_blank');
 }
