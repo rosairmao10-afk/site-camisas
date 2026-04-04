@@ -1,6 +1,4 @@
-/* =========================================
-   1. FAIXA DE AVISOS (TEXTO CORRENDO)
-========================================= */
+/* 1. FAIXA DE AVISOS */
 .barra-promocao {
     background: linear-gradient(90deg, #000 0%, #c9a227 50%, #000 100%);
     color: #fff;
@@ -10,25 +8,20 @@
     font-size: 14px;
     font-weight: bold;
 }
-
 .promo-animada {
     display: inline-block;
     padding-left: 100%;
     animation: correrTexto 25s linear infinite;
 }
-
 .promo-animada span {
     margin-right: 40px; 
 }
-
 @keyframes correrTexto {
     0% { transform: translateX(0); }
     100% { transform: translateX(-100%); }
 }
 
-/* =========================================
-   2. CABEÇALHO DA LOJA E BOTÕES (90+3)
-========================================= */
+/* 2. CABEÇALHO DA LOJA */
 header {
     background-color: #0d0d0d;
     display: flex;
@@ -39,23 +32,17 @@ header {
     flex-wrap: wrap;
     gap: 15px;
 }
-
 header h1 {
     color: #fff;
     margin: 0;
     font-size: 32px;
 }
-
 header nav {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
-
-header nav p {
-    display: none; 
-}
-
+header nav p { display: none; }
 header nav a {
     text-decoration: none;
     color: white;
@@ -67,22 +54,11 @@ header nav a {
     transition: transform 0.2s;
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
+header nav a:hover { transform: scale(1.05); }
+header nav .insta { background-color: #E1306C; }
+header nav .whats { background-color: #25D366; }
 
-header nav a:hover {
-    transform: scale(1.05);
-}
-
-header nav .insta {
-    background-color: #E1306C;
-}
-
-header nav .whats {
-    background-color: #25D366;
-}
-
-/* =========================================
-   3. ESTILOS GERAIS DA PÁGINA
-========================================= */
+/* 3. ESTILOS GERAIS */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -91,13 +67,8 @@ body {
     text-align: center;
 }
 
-/* =========================================
-   4. BARRA DE PESQUISA
-========================================= */
-.pesquisa {
-    margin-top: 20px;
-}
-
+/* 4. BARRA DE PESQUISA */
+.pesquisa { margin-top: 20px; }
 #campoPesquisa {
     width: 70%;
     max-width: 400px;
@@ -107,14 +78,9 @@ body {
     font-size: 16px;
     outline: none;
 }
+#campoPesquisa:focus { border-color: #c9a227; }
 
-#campoPesquisa:focus {
-    border-color: #c9a227;
-}
-
-/* =========================================
-   5. BOTÕES DE FILTRO (PREMIUM)
-========================================= */
+/* 5. BOTÕES DE FILTRO */
 .btn-filtro-principal {
     background-color: #000;
     color: #c9a227;
@@ -126,17 +92,14 @@ body {
     cursor: pointer;
     transition: all 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
 }
-
 .btn-filtro-principal:hover {
     transform: scale(1.05);
     background-color: #c9a227;
     color: #000;
 }
-
 .filtros-container {
     display: none;
     justify-content: center;
@@ -148,14 +111,7 @@ body {
     max-width: 90%;
     border-radius: 20px;
     border: 1px solid #333;
-    animation: fadeIn 0.3s ease;
 }
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 .btn-liga {
     background-color: #000;
     color: #fff;
@@ -166,15 +122,12 @@ body {
     font-weight: 600;
     transition: 0.3s;
 }
-
 .btn-liga:hover {
     background-color: #c9a227;
     color: #000;
 }
 
-/* =========================================
-   6. OS CARDS DOS PRODUTOS
-========================================= */
+/* 6. CARDS DOS PRODUTOS */
 .catalogo {
     display: flex;
     flex-wrap: wrap;
@@ -182,7 +135,6 @@ body {
     gap: 20px;
     padding: 20px;
 }
-
 .card {
     background-color: #fff;
     width: 280px;
@@ -192,22 +144,67 @@ body {
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     padding-bottom: 15px;
-    overflow: hidden;
-    position: relative;
+    position: relative; /* Mantém o coração preso ao card */
     transition: transform 0.3s, box-shadow 0.3s;
     margin-bottom: 10px;
+    content-visibility: auto;
+    contain-intrinsic-size: 280px 500px;
+    will-change: transform;
 }
-
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
 }
 
-.imagem-container {
+/* O BOTÃO DE CORAÇÃO (Canto Superior Direito) */
+.btn-fav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.4); 
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 10;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-fav:hover { transform: scale(1.1); background: rgba(0, 0, 0, 0.7); }
+.btn-fav.ativo {
+    background: #c9a227; 
+    border-color: #000;
+}
+
+/* EFEITO CARTA RARA (Brilho ao passar o mouse) */
+.imagem-container, .imagem-unica {
     width: 100%;
     position: relative;
     cursor: pointer;
     overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+.imagem-container::before, .imagem-unica::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+    transform: skewX(-25deg);
+    transition: none;
+    z-index: 2;
+    pointer-events: none; 
+}
+.card:hover .imagem-container::before, .card:hover .imagem-unica::before {
+    left: 150%;
+    transition: all 0.7s ease-in-out;
 }
 
 .card img {
@@ -215,24 +212,21 @@ body {
     height: auto;
     object-fit: contain;
     border-bottom: 2px solid #eee;
-    transition: opacity 0.3s;
+    transform: translateZ(0); 
+    backface-visibility: hidden;
 }
-
 .card h3 {
     margin: 15px 10px 5px 10px;
     font-size: 20px;
     color: #000;
     text-transform: uppercase;
-    text-align: center;
 }
-
 .preco {
     font-size: 22px;
     font-weight: bold;
     color: #28a745;
     margin: 10px 0;
 }
-
 .comprar {
     background-color: #25D366;
     color: white;
@@ -244,19 +238,15 @@ body {
     width: 80%;
     text-align: center;
     transition: 0.3s;
+    cursor: pointer;
 }
+.comprar:hover { background-color: #1ebe5d; }
 
-.comprar:hover {
-    background-color: #1ebe5d;
-}
-
-/* =========================================
-   7. ETIQUETAS AUTOMÁTICAS
-========================================= */
+/* 7. ETIQUETAS AUTOMÁTICAS */
 .etiqueta-vendida {
     position: absolute;
     top: 15px;
-    right: 15px;
+    left: 15px; 
     background-color: #ff2a2a;
     color: white;
     padding: 6px 12px;
@@ -266,7 +256,6 @@ body {
     box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     z-index: 10;
 }
-
 .etiqueta-lancamento {
     position: absolute;
     top: 15px;
@@ -281,9 +270,63 @@ body {
     z-index: 10;
 }
 
-/* =========================================
-   8. PERGUNTAS, FEEDBACKS E RODAPÉ (FOOTER)
-========================================= */
+/* 8. INDICADORES DE TAMANHO NO ESTOQUE */
+.tamanhos {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+.tamanho-badge {
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 30px;
+}
+.tamanho-badge.disponivel {
+    background-color: #c9a227;
+    color: #000;
+    border: 1px solid #c9a227;
+}
+.tamanho-badge.esgotado {
+    background-color: #f4f4f4;
+    color: #bbb;
+    border: 1px solid #ddd;
+    text-decoration: line-through;
+}
+
+/* 9. SESSÃO DE PROMOÇÕES */
+.secao-promocoes {
+    background-color: #fffdf5;
+    padding: 20px 0;
+    margin: 30px 0;
+    border-top: 3px dashed #c9a227;
+    border-bottom: 3px dashed #c9a227;
+}
+.titulo-promo {
+    color: #ff2a2a;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+.card.promocao .imagem-container::before, .card.promocao .imagem-unica::before {
+    background: linear-gradient(to right, rgba(201, 162, 39, 0) 0%, rgba(201, 162, 39, 0.5) 50%, rgba(201, 162, 39, 0) 100%);
+}
+.btn-promo {
+    background-color: #ff2a2a !important; 
+    box-shadow: 0 4px 10px rgba(255, 42, 42, 0.4);
+    animation: pulsar 2s infinite;
+}
+.btn-promo:hover { background-color: #cc0000 !important; }
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* 10. RODAPÉ E EXTRAS */
 .faq, .feedbacks {
     background: #fff;
     padding: 20px;
@@ -293,12 +336,7 @@ body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     text-align: left;
 }
-
-.pergunta h3, .comentario p {
-    color: #333;
-    margin-bottom: 5px;
-}
-
+.pergunta h3, .comentario p { color: #333; margin-bottom: 5px; }
 .footer {
     background-color: #0d0d0d;
     color: #fff;
@@ -306,7 +344,6 @@ body {
     margin-top: 40px;
     border-top: 2px solid #c9a227;
 }
-
 .footer-container {
     display: flex;
     flex-wrap: wrap;
@@ -314,29 +351,14 @@ body {
     gap: 20px;
     text-align: left;
 }
-
-.footer-col h3 {
-    color: #c9a227;
-}
-
-.footer-col a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-col a:hover {
-    color: #c9a227;
-}
-
+.footer-col h3 { color: #c9a227; }
+.footer-col a { color: #fff; text-decoration: none; font-weight: bold; }
 .footer-copy {
     margin-top: 20px;
     padding-top: 10px;
     border-top: 1px solid #333;
     font-size: 12px;
 }
-
-/* O botão do WhatsApp flutuante no canto */
 .whatsapp-float {
     position: fixed;
     bottom: 20px;
@@ -348,111 +370,64 @@ body {
     z-index: 100;
     transition: transform 0.3s;
 }
+.whatsapp-float:hover { transform: scale(1.1); }
+.whatsapp-float img { width: 35px; display: block; }
 
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-.whatsapp-float img {
-    width: 35px;
-    display: block;
-}
-
-/* =========================================
-   9. SESSÃO DE PROMOÇÕES (ÁREA VIP)
-========================================= */
-.secao-promocoes {
-    background-color: #fffdf5; /* Fundo levemente amarelado para destacar do resto do site */
-    padding: 20px 0;
-    margin: 30px 0;
-    border-top: 3px dashed #c9a227; /* Linha tracejada dourada */
-    border-bottom: 3px dashed #c9a227;
-}
-
-.titulo-promo {
-    color: #ff2a2a; /* Vermelho vibrante de oferta */
-    font-size: 28px;
-    margin-bottom: 10px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-/* Imagem estática do card de promoção */
-.imagem-unica {
-    width: 100%;
-    overflow: hidden;
-}
-
-.imagem-unica img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    border-bottom: 2px solid #eee;
-}
-
-/* Botão de comprar específico da promoção (Vermelho) */
-.btn-promo {
-    background-color: #ff2a2a !important; 
-    box-shadow: 0 4px 10px rgba(255, 42, 42, 0.4);
-    animation: pulsar 2s infinite; /* Faz o botão pulsar levemente */
-}
-
-.btn-promo:hover {
-    background-color: #cc0000 !important;
-}
-
-/* Animação para o botão de oferta pulsar chamando atenção */
-@keyframes pulsar {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-
-
-/* MELHORIA DE PERFORMANCE PARA CELULAR */
-.card {
-    content-visibility: auto;
-    contain-intrinsic-size: 280px 500px;
-    will-change: transform;
-}
-
-.card img {
-    transform: translateZ(0); /* Força o uso da placa de vídeo do celular */
-    backface-visibility: hidden;
-}
-
-
-/* =========================================
-   10. INDICADORES DE TAMANHO NO ESTOQUE (90+3)
-========================================= */
-.tamanhos {
+/* 11. SISTEMA DE FAVORITOS (SACOLA E MODAL) */
+#vitrine-flutuante {
+    position: fixed;
+    bottom: 90px; 
+    right: 20px;
+    background: #000;
+    color: #c9a227;
+    padding: 15px;
+    border-radius: 50%;
+    border: 2px solid #c9a227;
+    cursor: pointer;
+    z-index: 99;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
+    align-items: center;
     justify-content: center;
 }
-
-/* O formato do quadradinho de tamanho */
-.tamanho-badge {
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 14px;
+#contador-fav {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff2a2a;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 7px;
+    font-size: 12px;
     font-weight: bold;
-    text-align: center;
-    min-width: 30px;
 }
-
-/* Tamanho EM ESTOQUE (Dourado da loja) */
-.tamanho-badge.disponivel {
-    background-color: #c9a227;
-    color: #000;
-    border: 1px solid #c9a227;
+.modal { 
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0; 
+    top: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.8); 
 }
-
-/* Tamanho ESGOTADO (Cinza apagado e riscado) */
-.tamanho-badge.esgotado {
-    background-color: #f4f4f4;
-    color: #bbb;
-    border: 1px solid #ddd;
-    text-decoration: line-through; /* Dá o efeito de riscado */
+.modal-content { 
+    background: white; 
+    margin: 20% auto; 
+    padding: 20px; 
+    width: 85%; 
+    max-width: 400px; 
+    border-radius: 15px; 
+    text-align: center; 
+    position: relative;
 }
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+.close:hover { color: #000; }
