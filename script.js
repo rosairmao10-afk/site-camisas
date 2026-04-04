@@ -45,19 +45,15 @@ function pesquisarCamisa() {
 let favoritos = JSON.parse(localStorage.getItem('fav_903')) || [];
 
 function alternarFavorito(botao) {
-    // Pega o nome da camisa que está guardado no HTML
     let nomeCamisa = botao.getAttribute("data-nome");
 
     if (favoritos.includes(nomeCamisa)) {
-        // Remove
         favoritos = favoritos.filter(item => item !== nomeCamisa);
         botao.classList.remove('ativo');
     } else {
-        // Adiciona
         favoritos.push(nomeCamisa);
         botao.classList.add('ativo');
     }
-    // Salva na memória do navegador
     localStorage.setItem('fav_903', JSON.stringify(favoritos));
     atualizarContador();
 }
@@ -95,7 +91,7 @@ function enviarFavoritosWhats() {
 // ==========================================
 document.addEventListener("DOMContentLoaded", function() {
     
-    // 5.1 Carrega os corações que já estavam marcados antes de fechar o site
+    // Carrega os corações que já estavam marcados antes de fechar o site
     atualizarContador();
     document.querySelectorAll('.btn-fav').forEach(botao => {
         let nomeCamisa = botao.getAttribute("data-nome");
@@ -104,7 +100,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 5.2 Lazy Load (Performance)
+    // Lazy Load (Performance)
     let todasAsImagens = document.querySelectorAll("img");
     todasAsImagens.forEach(img => {
         if (!img.getAttribute("loading")) {
@@ -112,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 5.3 Atalho: pesquisa no Enter
+    // Atalho: pesquisa no Enter
     let campo = document.getElementById("campoPesquisa");
     if(campo) {
         campo.addEventListener("keypress", function(event) {
@@ -120,7 +116,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // 5.4 Etiquetas Automáticas
+    // Etiquetas Automáticas
     let cards = document.querySelectorAll(".card:not(.promocao)");
     cards.forEach(card => {
         let texto = card.innerText.toLowerCase();
@@ -144,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 
-    // 5.5 Efeito de Girar a Foto
+    // Efeito de Girar a Foto
     let containersImagem = document.querySelectorAll(".imagem-container");
     containersImagem.forEach(container => {
         let imagens = container.querySelectorAll("img");
@@ -164,3 +160,48 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+// ==========================================
+// 6. GATILHO DE PROVA SOCIAL (BALÃO)
+// ==========================================
+const nomes = ["Lucas", "Mateus", "Rafael", "Felipe", "Thiago", "Pedro", "Gabriel", "Mariana"];
+const locais = ["do Centro", "da Vila Rio Branco", "da Chapadinha", "do Jardim Itália", "de Itapetininga", "da Vila Regina"];
+const produtosComprados = ["o Kit do Brasil", "a camisa do Flamengo", "a camisa do Real Madrid", "a camisa do Corinthians", "a camisa do São Paulo"];
+
+function exibirProvaSocial() {
+    let nome = nomes[Math.floor(Math.random() * nomes.length)];
+    let local = locais[Math.floor(Math.random() * locais.length)];
+    let produto = produtosComprados[Math.floor(Math.random() * produtosComprados.length)];
+    
+    let balao = document.getElementById("balao-prova");
+    let texto = document.getElementById("texto-prova");
+    
+    if(balao && texto) {
+        texto.innerHTML = `<strong>${nome}</strong> ${local} acabou de encomendar <br><span style="color:#c9a227; font-weight:bold;">${produto}</span>!`;
+        
+        balao.classList.add("mostrar");
+        
+        setTimeout(() => {
+            balao.classList.remove("mostrar");
+        }, 5000);
+    }
+}
+
+// Inicia a primeira notificação após 8 segundos no site
+setTimeout(() => {
+    exibirProvaSocial();
+    // Depois, repete aleatoriamente entre 15 e 30 segundos
+    setInterval(exibirProvaSocial, Math.floor(Math.random() * (30000 - 15000 + 1) + 15000));
+}, 8000);
+
+// ==========================================
+// 7. EASTER EGG (TICKET 15% OFF)
+// ==========================================
+function resgatarTicket() {
+    document.getElementById("ticket-secreto").style.display = "none";
+    
+    alert("🎟️ VOCÊ ACHOU O TICKET DOURADO!\n\nTire um print desta tela e mande no WhatsApp da 90+3 para ganhar 15% OFF no valor TOTAL das suas camisas!");
+    
+    let mensagem = "Achei o Ticket Dourado no site! Quero meus 15% OFF nas camisas da vitrine 🎟️⚽";
+    window.open(`https://wa.me/5515991617508?text=${encodeURIComponent(mensagem)}`, '_blank');
+}
