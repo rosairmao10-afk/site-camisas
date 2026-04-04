@@ -477,7 +477,7 @@ body {
 /* EASTER EGG: TICKET ESCONDIDO */
 #ticket-secreto {
     position: fixed;
-    top: 45%; /* Fica no meio da tela */
+    top: 97%; /* Fica no finalzinho da tela */
     right: -30px; /* Esconde 80% do ticket */
     background: #c9a227;
     color: #000;
