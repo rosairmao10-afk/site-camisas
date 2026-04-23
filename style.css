@@ -1,3 +1,7 @@
+body {
+background-color: #fdfdfd;
+}
+
 /* 1. FAIXA DE AVISOS */
 .barra-promocao {
     background: linear-gradient(90deg, #000 0%, #c9a227 50%, #000 100%);
