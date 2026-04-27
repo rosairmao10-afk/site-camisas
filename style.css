@@ -538,11 +538,16 @@ body {
     color: #fff;
 }
 
+.container-pai {
+    display: flex;
+    flex-wrap: wrap
+    align-itens: stretch
+}
 
 .card {
 display: flex;
    flex-direction: column;
-   height: 100%;
+   height: auto;
 }
 
 .card h3 {
