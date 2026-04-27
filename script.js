@@ -191,8 +191,8 @@ function exibirProvaSocial() {
 setTimeout(() => {
     exibirProvaSocial();
     // Depois, repete aleatoriamente entre 15 e 30 segundos
-    setInterval(exibirProvaSocial, Math.floor(Math.random() * (20000 - 14000 + 1) + 18000));
-}, 60000);
+    setInterval(exibirProvaSocial, Math.floor(Math.random() * (200000 - 140000 + 10) + 180000));
+}, 600000);
 
 // ==========================================
 // 7. EASTER EGG (TICKET 15% OFF)
