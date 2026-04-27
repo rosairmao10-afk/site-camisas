@@ -550,6 +550,18 @@ display: flex;
    height: auto;
 }
 
+.tamanhos {
+margin.top: auto;
+}
+
+.comprar {
+    border-radius: 50px;
+    padding: 12px 20px;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
 .card h3 {
    margin-top: auto;
 }
