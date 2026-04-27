@@ -589,3 +589,21 @@ margin.top: auto;
   object-fit: cover;
   object-position: top;
 }
+
+/* Espaçamento e moldura para as imagens */
+
+.imagem-container {
+  margin-bottom: 15px;
+  border: 2px solid #f0f0f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.imagem-container img {
+  transition: transform 0.3s ease;
+}
+
+.imagem-container img:hover {
+  transform: scale(1.05);
+}
