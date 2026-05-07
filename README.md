@@ -1,0 +1,1 @@
+Esse é um site de catálogo de camisas de futebol desenvolvido com HTML, CSS e JavaScript, apresentando modelos de clubes e seleções do mundo, com layout responsivo, filtros de times e integração de compra via WhatsApp.
